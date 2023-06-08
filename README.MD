@@ -37,18 +37,23 @@ Ensure you have the following packages installed:
 
 
 ## Usage
+1. Clone the repo into your `$HOME` directory:
+   
+   ```shell
+   cd $HOME
+   git clone https://github.com/silvatyrant/mystrkl33n.git 
+   ```
 
-1. Install the required dependencies by running the following command:
+2. Install the required dependencies by running the following command:
 
-   ```plaintext
+   ```shell
    pip install -r requirements.txt
    ```
 
-2. Run the script with the desired options and arguments:
+3. Run the script with the desired options and arguments:
 
-   ```plaintext
+   ```shell
    python main.py [OPTIONS] WORDLIST
-   ```
 
    - `WORDLIST`: Path to the word list file.
 
@@ -60,6 +65,13 @@ Ensure you have the following packages installed:
    - `-e, --english-check DICTS`: Comma-separated list of dictionaries for English word check.
    - `-c, --case-insensitive`: Perform case-insensitive checks.
    - `-s, --show-stats`: Shows some stats. 
+   ```
+   
+4. [OPTIONAL] Create alias to run from anywhere:
+   
+   ```shell
+   echo "alias kl33n='python ~/mystrkl33n/main.py`" >> ~/.bashrc #OR ~/.zshrc  
+   ```
 
 ## Examples
 
