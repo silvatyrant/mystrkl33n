@@ -1,5 +1,7 @@
 # MystrKl33n - Wordlist Smallerizer
 
+![Image of banner](banner.png "banner")
+
 MystrKl33n is a Python script that allows you to manipulate a word list file by removing duplicates, filtering words based on a blacklist, performing English word checks, and optionally saving the processed word list to a file.
 
 ## Features
@@ -88,6 +90,9 @@ Ensure you have the following packages installed:
    ```
 
    This example will perform case-insensitive checks when filtering out words based on the blacklist.
+
+## To-Do
+- Fix stats chart
 
 ## Thank You
 

@@ -56,37 +56,40 @@ def process_wordlist(wordlist, remove_duplicates, blacklist, output, english_che
         # Calculate percentage reduction
         percentage_reduction = calculate_percentage_reduction(original_word_count, deduped_word_count)
 
-        # Create progress bar
-        progress_bar_length = 30
-        filled_length = int(progress_bar_length * percentage_reduction / 100)
-        remaining_length = progress_bar_length - filled_length
+        # Print statistics
+        print(f"Efficiency: {percentage_reduction}%")
+        print(f"Original Word Count: {original_word_count}")
+        print(f"Deduped Word Count: {deduped_word_count}")
+        print(f"Words Removed: {original_word_count - len(words)}")
+        print(f"Original Blacklist Size: {original_blacklist_size}")
+        print(f"Modified Blacklist Size: {original_blacklist_size - len(blacklist_words)}")
 
-        # Define progress bar colors
-        filled_color = '\u001b[41m'  # Red background
-        remaining_color = '\u001b[42m'  # Green background
-        end_color = '\u001b[0m'  # Reset color
-
-        # Build progress bar string
-        progress_bar = filled_color + '█' * filled_length + remaining_color + '█' * remaining_length + end_color
-
-        # Print progress bar
-        print(f"Progress: [{progress_bar}] {percentage_reduction}%")
-
-        # Print other stats
-        print(f"Original word count: {original_word_count}")
-        print(f"Deduped word count: {deduped_word_count}")
-        print(f"Words removed: {original_word_count - len(words)}")
-        print(f"Original blacklist size: {original_blacklist_size}")
-        print(f"Modified blacklist size: {original_blacklist_size - len(blacklist_words)}")
 
 def show_banner():
     banner_path = 'banner'
     try:
         with open(banner_path, 'r', encoding='utf-8') as banner_file:
             banner_content = banner_file.read()
-            print(banner_content)
+            lines = banner_content.splitlines()
+            max_length = max(len(line) for line in lines)
+
+            for line in lines:
+                gradient_line = ''
+                for i, char in enumerate(line):
+                    # Calculate the color gradient based on position
+                    r, g, b = 255, 0, 0
+                    if i < len(line) - 1:
+                        r = int(255 - ((255 / max_length) * i))
+                        g = int(127 + ((127 / max_length) * i))
+                        b = int(63 + ((192 / max_length) * i))
+                    gradient_line += f'\u001b[38;2;{r};{g};{b}m{char}'
+                print(gradient_line)
     except FileNotFoundError:
         pass
+
+    # Reset color at the end of the banner
+    print('\u001b[0m')
+
 
 def calculate_percentage_reduction(original_count, new_count):
     if original_count == 0:
