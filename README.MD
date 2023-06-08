@@ -66,11 +66,11 @@ Ensure you have the following packages installed:
    - `-c, --case-insensitive`: Perform case-insensitive checks.
    - `-s, --show-stats`: Shows some stats. 
    ```
-   
+
 4. [OPTIONAL] Create alias to run from anywhere:
    
    ```shell
-   echo "alias kl33n='python ~/mystrkl33n/main.py`" >> ~/.bashrc #OR ~/.zshrc  
+   echo "alias kl33n='python ~/mystrkl33n/main.py'" >> ~/.bashrc #OR ~/.zshrc  
    ```
 
 ## Examples
